@@ -2,21 +2,27 @@
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
+    string s;
+    cin >> s;
 
-    int sum = (n * (n + 1)) / 2;
+    char current_char = s[0];
+    int max_count = 1;
+    int current_count = 1;
 
-    int sum_number = 0;
-    int num;
-    for (int i = 0; i < n - 1; i++) {
-        cin >> num;
-        sum_number += num;
+    for (int i = 1; i < s.length(); i++) {
+        if (s[i] == s[i - 1]) {
+            current_count++;
+        } else {
+            current_count = 1;
+            current_char = s[i];
+        }
+
+        if (current_count > max_count) {
+            max_count = current_count;
+        }
     }
 
-    int missing_number = sum - sum_number;
+    cout << max_count << endl;
 
-    cout << missing_number << endl;
-    
     return 0;
 }

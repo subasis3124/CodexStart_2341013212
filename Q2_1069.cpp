@@ -1,26 +1,26 @@
-
-#include <bits/stdc++.h>
-
+#include <iostream>
 using namespace std;
-int main(){
-    string DNA;
-    int arr[4];
-    cin>>DNA;
-    int a,t,c,g;
-    a= t= c= g= 0;
-    for (int i=0;i<DNA.length();i++){
-        if(DNA[i]=='A'){
-            a++;
-        }
-        else if(DNA[i]=='T'){
-            t++;
-        }
-        else if(DNA[i]=='C'){
-            c++;
-        }
-        else if(DNA[i]=='G'){
-            g++;
-        }
+
+int main() {
+    long long n;
+    cin >> n;
+
+    // Calculate the expected sum of numbers from 1 to n
+    long long expected_sum = n * (n + 1) / 2;
+
+    // Initialize a variable to store the actual sum
+    long long actual_sum = 0;
+
+    for (int i = 1; i < n; i++) {
+        int num;
+        cin >> num;
+        actual_sum += num;
     }
-    cout<<max(a,max(t,max(c,g)));
+
+    // The missing number is the difference between the expected and actual sum
+    long long missing_number = expected_sum - actual_sum;
+
+    cout << missing_number << endl;
+
+    return 0;
 }
